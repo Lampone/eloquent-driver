@@ -24,6 +24,6 @@ class EntryModel extends Eloquent
 
     public function getAttribute($key)
     {
-        return Arr::get($this->getAttributeValue('data'), $key, parent::getAttribute($key));
+        return parent::getAttribute($key) ?? Arr::get($this->getAttributeValue('data'), $key);
     }
 }
